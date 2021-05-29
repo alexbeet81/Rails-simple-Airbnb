@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Flat.creat!(
+  name: 'Entire house hosted by Salomon',
+  address: '',
+  description: ''
+  price_per_night: 100,
+  number_of_guests: 3
+  )
