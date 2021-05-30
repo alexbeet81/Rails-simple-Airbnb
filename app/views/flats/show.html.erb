@@ -1,0 +1,46 @@
+<%= render 'nav_bar' %>
+
+<div class="container">
+  <div class="card mt-4">
+    <div class="card-body bg-body">
+      <h4 class="card-title">
+        <%= @flat.name %>
+      </h4>
+      <p class="card-text">
+        <%= @flat.address %>
+      </p>
+    </div>
+  </div>
+  <div class="card mt-4">
+    <div class="card-body bg-body">
+      <h4 class="card-title">
+        A bit more about this flat...
+      </h5>
+      <p class="card-text">
+        <%= @flat.description %>
+      </p>
+    </div>
+  </div>
+  <div class="card mt-4">
+    <div class="card-body bg-body">
+      <h5 class="card-title">
+        details
+      </h5>
+      <p class="card-text">
+        <i class="card-text fas fa-user-friends mt-4"></i>
+        <%= @flat.number_of_guests %>
+        <i class="fas fa-pound-sign"></i>
+        <%= @flat.price_per_night %>
+      </p>
+    </div>
+  </div>
+    <div class="card mt-4">
+    <div class="card-body bg-body">
+      <h5 class="card-title">
+        <%= link_to 'edit', edit_flat_path(@flat),
+                          class: "bt btn-primary text-white",
+                          type: 'button' %>
+      </h5>
+    </div>
+  </div>
+</div>
