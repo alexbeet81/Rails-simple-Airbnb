@@ -1,6 +1,7 @@
 <%= render 'nav_bar' %>
 
 <div class="container">
+  <img src="<%= @flat.image %>" height="100px" width="200px">
   <div class="card mt-4">
     <div class="card-body bg-body">
       <h4 class="card-title">
@@ -40,6 +41,10 @@
         <%= link_to 'edit', edit_flat_path(@flat),
                           class: "bt btn-primary text-white",
                           type: 'button' %>
+        <%= link_to 'delete', flat_path(@flat),
+                          method: :delete,
+                          data: { confirm: 'are you sure?' },
+                          class: "nav-link p-0" %>
       </h5>
     </div>
   </div>

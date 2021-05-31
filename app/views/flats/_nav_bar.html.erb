@@ -14,7 +14,10 @@
       <li class="nav-item">
         <%= link_to "Add flat", new_flat_path, class: "nav-link" %>
       </li>
-
     </ul>
+    <form class="form-inline my-2 my-lg-0 d-flex" action="/flats/search">
+      <input class="form-control mr-sm-2" name="query" type="text" placeholder="search" aria-label="Search">
+      <button class="btn btn-primary" type="submit">search</button>
+    </form>
   </div>
 </div>

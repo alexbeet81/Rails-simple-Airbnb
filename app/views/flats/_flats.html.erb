@@ -1,0 +1,25 @@
+<div class="container">
+  <h2 class="fw-light fs-4 mt-2">All our flats(<%= @flats.count %>)</h2>
+
+  <div class="row row-cols-3">
+    <% @flats.each do |flat| %>
+      <div class="col">
+        <div class="card mt-2" style="width: 18rem, height: 32rem;">
+          <img src="<%= flat.image %>" class="card-img-top" alt="house image">
+          <div class="card-body">
+            <h5 class="card-title"><%= flat.name %></h5>
+            <p class="card-text"><%= flat.address %></p>
+            <div class="d-flex justify-content-between">
+              <%= link_to 'more info', flat_path(flat), class: "nav-link p-0 text-primary" %>
+              <%= link_to 'edit', edit_flat_path(flat), class: "nav-link p-0 text-secondary" %>
+              <%= link_to 'delete', flat_path(flat),
+                          method: :delete,
+                          data: { confirm: 'are you sure?' },
+                          class: "nav-link p-0 text-success" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

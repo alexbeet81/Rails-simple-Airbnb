@@ -1,8 +1,12 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, only: [:show, :edit, :update]
+  before_action :set_flat, only: [:show, :edit, :update, :destroy]
   def index
     @flats = Flat.all
   end
+
+  # def index
+  #   @flat = Flat.search(params[:search])
+  # end
 
   def show; end
 
@@ -28,6 +32,23 @@ class FlatsController < ApplicationController
     redirect_to flat_path(@flat)
   end
 
+  def destroy
+    @flat.destroy
+
+    redirect_to flats_path
+  end
+
+  # def find
+  #   @search = Flat.find(params[:id])
+  #   @flats = Flat.where("name Like '%#{search}'")
+  # end
+
+  def search
+    # @flats = Flat.where("name LIKE ?, '%#{params[:q]}%'")
+    @flats = Flat.where("name LIKE ?", "%#{params[:query]}%")
+    @word_searched = params[:query]
+  end
+
   private
 
   def set_flat
@@ -36,6 +57,7 @@ class FlatsController < ApplicationController
 
   def flat_params
     params.require(:flat).permit(:name, :address, :description,
-                                 :price_per_night, :number_of_guests)
+                                 :price_per_night, :number_of_guests, :search,
+                                 :image)
   end
 end
